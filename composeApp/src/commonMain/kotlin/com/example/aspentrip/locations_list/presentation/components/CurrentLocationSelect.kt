@@ -1,4 +1,4 @@
-package com.example.aspentrip.locations_list.presentation.molecules
+package com.example.aspentrip.locations_list.presentation.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Row

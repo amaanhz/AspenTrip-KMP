@@ -8,10 +8,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import aspentrip.composeapp.generated.resources.Res
+import aspentrip.composeapp.generated.resources.tab_list
 import com.example.aspentrip.locations_list.presentation.LocationsListViewModel
 import com.example.aspentrip.locations_list.presentation.atoms.DrawTabSelectButton
+import org.jetbrains.compose.resources.stringArrayResource
 
-val tabs = arrayOf("Locations", "Hotels", "Food", "Adventure", "Nightlife", "Beach")
+enum class Tabs {
+    Locations,
+    Hotels,
+    Food,
+    Adventure,
+    Nightlife,
+    Beach
+}
 
 @Composable
 fun TabBar(viewModel: LocationsListViewModel) {
@@ -19,8 +29,14 @@ fun TabBar(viewModel: LocationsListViewModel) {
         .horizontalScroll(rememberScrollState())
         .padding(horizontal = 0.dp, vertical = 5.dp),
         verticalAlignment = Alignment.CenterVertically) {
-        for ((i, _) in tabs.withIndex()) {
-            DrawTabSelectButton(tabs[i], i, viewModel)
+        for (i in Tabs.entries) {
+            val index = i.ordinal
+            DrawTabSelectButton(
+                stringArrayResource(Res.array.tab_list)[index],
+                index,
+                index == viewModel.selected,
+                viewModel::selectTab
+            )
         }
     }
 }

@@ -10,6 +10,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeContent
 import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -20,7 +22,7 @@ import androidx.navigation.NavController
 import aspentrip.composeapp.generated.resources.Res
 import aspentrip.composeapp.generated.resources.popular
 import com.example.aspentrip.locations_list.presentation.atoms.DrawPageTitle
-import com.example.aspentrip.locations_list.presentation.molecules.DrawLocationSelect
+import com.example.aspentrip.locations_list.presentation.components.DrawLocationSelect
 import com.example.aspentrip.locations_list.presentation.molecules.DrawLocationsScrollableList
 import com.example.aspentrip.locations_list.presentation.molecules.TabBar
 import org.jetbrains.compose.resources.stringResource
@@ -33,7 +35,8 @@ fun LocationsList(navController: NavController?,
                   viewModel: LocationsListViewModel = viewModel { LocationsListViewModel() }) {
     Column(modifier = Modifier
         .fillMaxSize()
-        .windowInsetsPadding(WindowInsets.safeContent)) {
+        .windowInsetsPadding(WindowInsets.safeContent)
+        .verticalScroll(rememberScrollState())) {
         Row(modifier = Modifier.fillMaxWidth().height(90.dp)) {
             DrawPageTitle()
             Spacer(Modifier.weight(1.0f))

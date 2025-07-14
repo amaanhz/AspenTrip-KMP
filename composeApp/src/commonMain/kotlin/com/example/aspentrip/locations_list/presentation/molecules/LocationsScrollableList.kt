@@ -8,7 +8,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.aspentrip.locations_list.domain.Location
-import com.example.aspentrip.locations_list.presentation.atoms.DrawLocationItem
 
 @Composable
 fun DrawLocationsScrollableList(locations: List<Location>?) {
