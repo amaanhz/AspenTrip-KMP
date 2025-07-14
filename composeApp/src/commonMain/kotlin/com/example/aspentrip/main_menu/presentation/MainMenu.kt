@@ -14,33 +14,32 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import aspentrip.composeapp.generated.resources.Res
 import aspentrip.composeapp.generated.resources.main_menu
+import aspentrip.composeapp.generated.resources.title
 import com.example.aspentrip.main_menu.presentation.atoms.DrawExploreButton
 import com.example.aspentrip.main_menu.presentation.atoms.DrawMainTitle
 import com.example.aspentrip.main_menu.presentation.atoms.DrawSubTitle
-import com.example.aspentrip.theme.AspenTripTheme
 import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
 @Preview
 fun MainMenu(navController: NavController?) {
-    AspenTripTheme {
-        Image(painterResource(Res.drawable.main_menu),
-            contentDescription = "",
-            modifier = Modifier.fillMaxSize(),
-            contentScale = ContentScale.Crop)
-        Column(
-            modifier = Modifier
-                .safeContentPadding()
-                .fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            DrawMainTitle("Aspen")
-            Spacer(Modifier.weight(1.0f))
-            DrawSubTitle()
-            DrawExploreButton(navController)
-            Spacer(Modifier.height(30.dp))
-        }
+    Image(painterResource(Res.drawable.main_menu),
+        contentDescription = "",
+        modifier = Modifier.fillMaxSize(),
+        contentScale = ContentScale.Crop)
+    Column(
+        modifier = Modifier
+            .safeContentPadding()
+            .fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        DrawMainTitle(stringResource(Res.string.title))
+        Spacer(Modifier.weight(1.0f))
+        DrawSubTitle()
+        DrawExploreButton(navController)
+        Spacer(Modifier.height(30.dp))
     }
 }
 

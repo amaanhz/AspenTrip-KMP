@@ -6,6 +6,9 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+    id("com.google.devtools.ksp") version "2.2.0-2.0.2"
+    id("de.jensklingenberg.ktorfit") version "2.6.1"
+    kotlin("plugin.serialization") version "2.2.0"
 }
 
 val ktorVersion = "3.2.1"
@@ -50,6 +53,7 @@ kotlin {
             implementation(libs.navigation.compose)
             implementation("io.coil-kt.coil3:coil-compose:3.2.0")
             implementation("io.coil-kt.coil3:coil-svg:3.2.0")
+            implementation("io.coil-kt.coil3:coil-network-ktor3:3.2.0")
             implementation(libs.ktor.client.core)
             implementation("io.insert-koin:koin-compose:4.0.3")
             implementation("io.insert-koin:koin-compose-viewmodel:4.0.3")

@@ -1,0 +1,21 @@
+<resources>
+    <string name = "explore_button">Explore</string>
+    <string name = "title">Aspen</string>
+    <string name = "main_sub_heading_l1">Plan your</string>
+    <string name = "main_sub_heading_l2">Luxurious\nVacation</string>
+
+    <string name = "location_list_header_l1">Explore</string>
+    <string name = "location_list_header_l2">Aspen</string>
+    <string name = "cur_location">Aspen, USA</string>
+
+    <string-array name = "tab-list">
+        <item>Locations</item>
+        <item>Hotels</item>
+        <item>Food</item>
+        <item>Adventure</item>
+        <item>Nightlife</item>
+        <item>Beach</item>
+    </string-array>
+
+    <string name="popular">Popular</string>
+</resources>

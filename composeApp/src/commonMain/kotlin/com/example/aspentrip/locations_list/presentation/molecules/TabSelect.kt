@@ -12,8 +12,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import aspentrip.composeapp.generated.resources.Res
 import aspentrip.composeapp.generated.resources.arrow_down
+import aspentrip.composeapp.generated.resources.cur_location
 import aspentrip.composeapp.generated.resources.location_1
 import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun DrawLocationSelect() {
@@ -22,7 +24,9 @@ fun DrawLocationSelect() {
         Image(painterResource(Res.drawable.location_1),
             contentDescription = null,
             modifier = Modifier.size(20.dp))
-        Text("Aspen, USA", style = MaterialTheme.typography.labelSmall)
+        Text(stringResource(Res.string.cur_location),
+            style = MaterialTheme.typography.labelSmall
+        )
         Image(painterResource(Res.drawable.arrow_down),
             contentDescription = null,
             modifier = Modifier.size(20.dp))

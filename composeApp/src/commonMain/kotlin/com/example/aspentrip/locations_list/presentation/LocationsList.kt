@@ -17,10 +17,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import aspentrip.composeapp.generated.resources.Res
+import aspentrip.composeapp.generated.resources.popular
 import com.example.aspentrip.locations_list.presentation.atoms.DrawPageTitle
 import com.example.aspentrip.locations_list.presentation.molecules.DrawLocationSelect
+import com.example.aspentrip.locations_list.presentation.molecules.DrawLocationsScrollableList
 import com.example.aspentrip.locations_list.presentation.molecules.TabBar
-import com.example.aspentrip.theme.AspenTripTheme
+import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 
@@ -28,21 +31,19 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 @Preview()
 fun LocationsList(navController: NavController?,
                   viewModel: LocationsListViewModel = viewModel { LocationsListViewModel() }) {
-    AspenTripTheme {
-        Column(modifier = Modifier
-            .fillMaxSize()
-            .windowInsetsPadding(WindowInsets.safeContent)) {
-            Row(modifier = Modifier.fillMaxWidth().height(90.dp)) {
-                DrawPageTitle()
-                Spacer(Modifier.weight(1.0f))
-                DrawLocationSelect()
-            }
-            TabBar(viewModel)
-            Text("Locations",
-                style = MaterialTheme.typography.headlineMedium,
-                modifier = Modifier.padding(horizontal = 0.dp, vertical = 5.dp)
-            )
-
+    Column(modifier = Modifier
+        .fillMaxSize()
+        .windowInsetsPadding(WindowInsets.safeContent)) {
+        Row(modifier = Modifier.fillMaxWidth().height(90.dp)) {
+            DrawPageTitle()
+            Spacer(Modifier.weight(1.0f))
+            DrawLocationSelect()
         }
+        TabBar(viewModel)
+        Text(stringResource(Res.string.popular),
+            style = MaterialTheme.typography.headlineMedium,
+            modifier = Modifier.padding(horizontal = 0.dp, vertical = 5.dp)
+        )
+        DrawLocationsScrollableList(viewModel.getLocations())
     }
 }

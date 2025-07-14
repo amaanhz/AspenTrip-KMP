@@ -1,11 +1,12 @@
 package com.example.aspentrip.locations_list.domain
 
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
 data class Location(
-    val id: Int,
-    val name: String,
-    val imageURL: String,
-    val rating: Double
+    @SerialName("id") val id: Int,
+    @SerialName("name") val name: String,
+    @SerialName("imageURL") val imageURL: String,
+    @SerialName("rating") val rating: Double
 ) {}

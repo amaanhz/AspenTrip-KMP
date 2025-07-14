@@ -8,21 +8,23 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.aspentrip.theme.AspenTripTheme
+import aspentrip.composeapp.generated.resources.Res
+import aspentrip.composeapp.generated.resources.main_sub_heading_l1
+import aspentrip.composeapp.generated.resources.main_sub_heading_l2
+import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun DrawSubTitle() {
     Column {
-        Text("Plan your",
+        Text(stringResource(Res.string.main_sub_heading_l1),
             color = Color.White,
             style = MaterialTheme.typography.headlineSmall,
             textAlign = TextAlign.Left,
             modifier = Modifier.fillMaxWidth().padding(horizontal = 30.dp))
-        Text("Luxurious\nVacation",
+        Text(stringResource(Res.string.main_sub_heading_l2),
             color = Color.White,
             style = MaterialTheme.typography.headlineLarge,
             fontSize = 45.sp,

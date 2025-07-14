@@ -10,10 +10,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import aspentrip.composeapp.generated.resources.Res
+import aspentrip.composeapp.generated.resources.explore_button
+import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun DrawExploreButton(navController: NavController?) {
@@ -23,6 +24,8 @@ fun DrawExploreButton(navController: NavController?) {
         ),
         modifier = Modifier.fillMaxWidth().height(100.dp).padding(20.dp)
     ) {
-        Text("Explore", style = MaterialTheme.typography.labelMedium)
+        Text(stringResource(Res.string.explore_button),
+            style = MaterialTheme.typography.labelMedium
+        )
     }
 }

@@ -6,6 +6,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.aspentrip.locations_list.presentation.LocationsList
 import com.example.aspentrip.main_menu.presentation.MainMenu
+import com.example.aspentrip.theme.AspenTripTheme
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 
@@ -16,11 +17,15 @@ fun App() {
 
     NavHost(navController, startDestination = "main") {
         composable("main") {
-            MainMenu(navController)
+            AspenTripTheme {
+                MainMenu(navController)
+            }
         }
 
         composable("locations") {
-            LocationsList(navController)
+            AspenTripTheme {
+                LocationsList(navController)
+            }
         }
     }
 }
