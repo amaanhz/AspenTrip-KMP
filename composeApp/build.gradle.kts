@@ -1,4 +1,3 @@
-import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
@@ -8,6 +7,9 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
 }
+
+val ktorVersion = "3.2.1"
+val ktorfitVersion = "2.6.1"
 
 kotlin {
     androidTarget {
@@ -49,6 +51,23 @@ kotlin {
             implementation("io.coil-kt.coil3:coil-compose:3.2.0")
             implementation("io.coil-kt.coil3:coil-svg:3.2.0")
             implementation(libs.ktor.client.core)
+            implementation("io.insert-koin:koin-compose:4.0.3")
+            implementation("io.insert-koin:koin-compose-viewmodel:4.0.3")
+            implementation("io.insert-koin:koin-compose-viewmodel-navigation:4.0.3")
+            implementation("io.insert-koin:koin-core:4.0.3")
+            implementation("de.jensklingenberg.ktorfit:ktorfit-lib:$ktorfitVersion")
+            // implementation("de.jensklingenberg.ktorfit:ktorfit-lib-light:$ktorfitVersion")
+            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.1")
+            implementation("de.jensklingenberg.ktorfit:ktorfit-converters-response:$ktorfitVersion")
+            implementation("de.jensklingenberg.ktorfit:ktorfit-converters-call:$ktorfitVersion")
+            implementation("de.jensklingenberg.ktorfit:ktorfit-converters-flow:$ktorfitVersion")
+
+            // Only needed when you want to use Kotlin Serialization
+            implementation("io.ktor:ktor-client-serialization:$ktorVersion")
+            implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
+            implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
+
+            implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.1")
         }
         appleMain.dependencies {
             implementation("io.ktor:ktor-client-darwin:3.2.1")
