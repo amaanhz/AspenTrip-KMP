@@ -11,15 +11,16 @@ import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.example.aspentrip.locations_list.presentation.LocationsListAction
 
 @Composable
 fun DrawTabSelectButton(tabName: String,
                         tabIndex: Int,
                         thisSelected: Boolean,
-                        onSelect: (index: Int) -> Unit
+                        onAction: (LocationsListAction) -> Unit
 ) {
 
-    Button(onClick = {onSelect(tabIndex)},
+    Button(onClick = {onAction(LocationsListAction.OnTabSelected(tabIndex))},
         modifier = Modifier
             .scale(if (thisSelected) 1.1f else 1.0f )
             .padding(horizontal = if (thisSelected) 8.dp else 2.dp

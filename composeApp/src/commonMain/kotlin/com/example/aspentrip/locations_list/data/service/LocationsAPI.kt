@@ -9,4 +9,8 @@ interface LocationsAPI {
     suspend fun getLocations(
         @Header("location") location: String
     ): LocationResponse
+
+    @GET("recommended")
+    suspend fun getRecommended(): LocationResponse
+
 }

@@ -18,8 +18,6 @@ import androidx.compose.ui.unit.dp
 import aspentrip.composeapp.generated.resources.Res
 import aspentrip.composeapp.generated.resources.main_menu
 import coil3.compose.AsyncImage
-import coil3.compose.LocalPlatformContext
-import coil3.request.ImageRequest
 import com.example.aspentrip.locations_list.domain.Location
 import com.example.aspentrip.locations_list.presentation.atoms.DrawLocationNameLabel
 import com.example.aspentrip.locations_list.presentation.atoms.DrawLocationRatingLabel
@@ -37,9 +35,7 @@ fun DrawLocationItem(loc: Location) {
         ) {
         Box {
             AsyncImage(
-                model = ImageRequest.Builder(LocalPlatformContext.current)
-                    .data(loc.imageURL)
-                    .build(),
+                model = loc.imageURL,
                 contentDescription = "Location Image",
                 contentScale = ContentScale.Crop,
                 placeholder = painterResource(Res.drawable.main_menu),

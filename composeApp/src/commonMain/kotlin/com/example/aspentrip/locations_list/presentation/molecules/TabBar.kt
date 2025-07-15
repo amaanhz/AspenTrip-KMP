@@ -10,7 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import aspentrip.composeapp.generated.resources.Res
 import aspentrip.composeapp.generated.resources.tab_list
-import com.example.aspentrip.locations_list.presentation.LocationsListViewModel
+import com.example.aspentrip.locations_list.presentation.LocationsListAction
 import com.example.aspentrip.locations_list.presentation.atoms.DrawTabSelectButton
 import org.jetbrains.compose.resources.stringArrayResource
 
@@ -24,7 +24,7 @@ enum class Tabs {
 }
 
 @Composable
-fun TabBar(viewModel: LocationsListViewModel) {
+fun TabBar(selectedTab: Int, onAction: (LocationsListAction) -> Unit) {
     Row(modifier = Modifier
         .horizontalScroll(rememberScrollState())
         .padding(horizontal = 0.dp, vertical = 5.dp),
@@ -34,8 +34,8 @@ fun TabBar(viewModel: LocationsListViewModel) {
             DrawTabSelectButton(
                 stringArrayResource(Res.array.tab_list)[index],
                 index,
-                index == viewModel.selected,
-                viewModel::selectTab
+                index == selectedTab,
+                onAction
             )
         }
     }
